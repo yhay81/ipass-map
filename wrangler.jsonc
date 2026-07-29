@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ipass-map",
+  "main": "src/worker.tsx",
+  "compatibility_date": "2026-07-29",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "ipass-map.yhay81.com",
+      "custom_domain": true,
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "ipass-map",
+      "database_id": "2f3d6f80-0135-49e7-858f-10cb0b1a91bd",
+      "migrations_dir": "db/migrations",
+    },
+  ],
+  "triggers": {
+    "crons": ["23 19 * * *"],
+  },
+}
